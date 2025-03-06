@@ -32,7 +32,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     @{
-                        var result = Engine.FindView(ViewContext, "_LoginPartial", isMainPost: false);
+                        var result = Engine.FindView(ViewContext, "_LoginPartial", isMainPage: false);
                     }
                     @if (result.Success)
                     {
@@ -41,8 +41,8 @@
                     else
                     {
                         throw new InvalidOperationException("The default Identity UI layout requires a partial view '_LoginPartial' " +
-                            "usually located at '/Posts/_LoginPartial' or at '/Views/Shared/_LoginPartial' to work. Based on your configuration " +
-                            $"we have looked at it in the following locations: {System.Environment.NewLine}{string.Join(System.Environment.NewLine, result.SearchedLocations)}.");
+                        "usually located at '/Posts/_LoginPartial' or at '/Views/Shared/_LoginPartial' to work. Based on your configuration " +
+                        $"we have looked at it in the following locations: {System.Environment.NewLine}{string.Join(System.Environment.NewLine, result.SearchedLocations)}.");
                     }
                 </div>
             </div>
@@ -57,13 +57,13 @@
     </div>
     <footer class="footer border-top pl-3 text-muted">
         <div class="container">
-        &copy; 2025 - WebApiTest
+            &copy; 2025 - WebApiTest
             @{
-                var foundPrivacy = Url.Post("/Privacy", new { area = "" });
+                var foundPrivacy = Url.Action("Privacy", "Home", new { area = "" });
             }
             @if (foundPrivacy != null)
             {
-                <a asp-area="" asp-post="/Privacy">Privacy</a>
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             }
         </div>
     </footer>
@@ -92,3 +92,6 @@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+

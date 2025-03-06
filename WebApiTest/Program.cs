@@ -49,9 +49,9 @@ namespace WebApiTest
 
 
             app.MapControllers();
-            app.MapRazorPosts();
+            // app.MapRazorPosts(); // Comment out or remove this line as it is causing the error
 
-           
+
 
             app.Run();
         }

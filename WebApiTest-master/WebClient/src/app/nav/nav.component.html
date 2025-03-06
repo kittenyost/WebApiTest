@@ -1,0 +1,10 @@
+<ul>
+  <li><a [routerLink]="['']">Home</a></li>
+  <li><a [routerLink]="['post']">List Posts</a></li>
+  <li *ngFor="let page of staticPages">
+    <a [routerLink]="['post', page.id]">{{ page.displayName }}</a>
+  </li>
+  <li>
+    <a [routerLink]="['post', 'create']" class="btn btn-sm btn-primary">Create New</a>
+  </li>
+</ul>

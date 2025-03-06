@@ -1,0 +1,6 @@
+@WebApiTest_HostAddress = http://localhost:5124
+
+GET {{WebApiTest_HostAddress}}/api/contents
+Accept: application/json
+
+###

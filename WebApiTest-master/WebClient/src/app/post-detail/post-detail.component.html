@@ -1,0 +1,7 @@
+<!--<pre>{{ post | json }}</pre>-->
+<div class="post-details" *ngIf="isLoaded">
+  <h1>{{ post!.title }}</h1>
+  <h3>Updated At: {{ post!.updatedAt | date:"fullDate"}}</h3>
+  <p>{{ post!.body }}</p>
+</div>
+

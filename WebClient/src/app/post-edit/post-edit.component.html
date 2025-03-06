@@ -1,5 +1,53 @@
 <pre>{{ post | json }}</pre>
+<pre>Editing: {{ isEditing }}</pre>
+<div *ngIf="!isLoaded" class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
 
 <div *ngIf="isLoaded">
-  <h1>{{ post.title }}</h1>
+  <h1>Edit {{ post.title }}</h1>
+  <!-- add form below -->
+  <form [formGroup]="postForm">
+    <!-- title -->
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" formControlName="title">
+    </div>
+
+    <!-- body -->
+    <div class="mb-3">
+      <label for="body" class="form-label">Body</label>
+      <textarea class="form-control" id="body" rows="5" formControlName="body"></textarea>
+    </div>
+
+    <!-- createdAt -->
+    <!-- auto filled -->
+    <!-- updatedAt -->
+    <!-- auto filled -->
+    <!-- visibility -->
+    <div class="mb-3">
+      <label for="visibility" class="form-label">Visibility</label>
+      <input type="text" class="form-control" id="visibility" formControlName="visibility">
+    </div>
+
+    <!-- categoryId -->
+    <!-- category -->
+    <!-- categoryId -->
+    <!-- categoryName -->
+    <!-- postedContent (watch out for this) -->
+    <!--<div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>-->
+
+    <div class="btn-group">
+      <button (click)="onClear()" class="btn btn-danger">Clear</button>
+      <button (click)="onSave()" class="btn btn-primary">Save</button>
+    </div>
+  </form>
 </div>
